@@ -37,20 +37,19 @@ print(territories)
 
 
 
-# IDENTIFY COMMON COLUMNS: Customers.CustomerID, ContactName, Orders.OrderID, CustomerID, Order Details.UnitPrice, Quantity,OrderID
+# 3  IDENTIFY COMMON COLUMNS: Customers.CustomerID, ContactName, Orders.OrderID, CustomerID, Order Details.UnitPrice, Quantity,OrderID
 
 
-# WRITE QUERY: multiply unit price with quantity, sum, join customer details and order details from Orders, Order Details, and Customers tables, group by customers, sort by amount spent
+# 4 WRITE QUERY: multiply unit price with quantity, sum, join customer details and order details from Orders, Order Details, and Customers tables, group by customers, sort by amount spent
 
 query=pd.read_sql_query('SELECT SUM ([Order Details].UnitPrice * [Order Details].Quantity) AS TotalSpent, Orders.CustomerID, Customers.ContactName FROM Customers INNER JOIN Orders ON Orders.CustomerID=Customers.CustomerID INNER JOIN [Order Details] ON [Order Details].OrderID=Orders.OrderID GROUP BY Orders.CustomerID, Customers.ContactName ORDER BY TotalSpent DESC', northwind)
 
 
 
-# EXPORT QUERY
+# 5 EXPORT QUERY
 top10=query.head(10)
 
 top10.to_csv(r'Desktop/top10.csv')
-
 
 
 
