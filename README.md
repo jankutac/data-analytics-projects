@@ -3,15 +3,15 @@
 <img width="1000" height="800" alt="top10 customers" src="https://github.com/user-attachments/assets/90009bc2-9350-4cbe-a7cf-fc13719e7bdd" />
 
 
-Northwind e-commerce database:
-Identify ten biggest customers
+# Northwind e-commerce database:
+# Identify ten biggest customers
 
 
-Source: 
+# Source: 
 northwind.db
 https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
 
-Method:
+# Method:
 
 
 # 1 PRELIMINARY
