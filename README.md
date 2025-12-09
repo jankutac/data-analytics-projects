@@ -2,6 +2,7 @@
 <img width="1169" height="827" alt="environmental subsidies x EV registrations Spain" src="https://github.com/user-attachments/assets/8b299853-3f94-4a23-97ac-005662be68fd" />
 <img width="1000" height="800" alt="top10 customers" src="https://github.com/user-attachments/assets/90009bc2-9350-4cbe-a7cf-fc13719e7bdd" />
 
+
 Northwind e-commerce database:
 Identify ten biggest customers
 
@@ -15,23 +16,33 @@ Method:
 
 # 1 PRELIMINARY
 python
+
 import pandas as pd
+
 import sqlite3 as sql
+
 
 
 # 2 CHECK TABLES, FIND PATTERNS
 
 northwind=sql.connect(r'Desktop\northwind.db')
+
 cursor=northwind.cursor()
+
 tables=pd.read_sql_query('SELECT tbl_name FROM sqlite_master WHERE type="table"', northwind) 
+
 print(tables) 
+
 pd.read_sql_query('SELECT COUNT (*) FROM Territories', northwind)
+
 cursor.execute('PRAGMA table_info (Customers)')
+
 cursor.fetchall()
 
-- load a table
-territories=pd.read_sql_query('SELECT * FROM Territories', northwind)
-print(territories)
+
+customers=pd.read_sql_query('SELECT * FROM Customers', northwind)
+
+print(custoemers)
 
 
 
@@ -49,7 +60,9 @@ query=pd.read_sql_query('SELECT SUM ([Order Details].UnitPrice * [Order Details]
 # 5 EXPORT QUERY
 top10=query.head(10)
 
+
 top10.to_csv(r'Desktop/top10.csv')
+
 
 
 
