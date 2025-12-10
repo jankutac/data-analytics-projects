@@ -64,5 +64,49 @@ top10=query.head(10)
 top10.to_csv(r'Desktop/top10.csv')
 
 
+<img width="1000" height="800" alt="top5 employeesfor US customers" src="https://github.com/user-attachments/assets/b2beb56d-dc23-47f5-8cfc-9aeecbc999ce" />
+
+#  Northwind e-commerce database:
+#  Identify top 5 employees serving US customers
+
+
+pd.read_sql_query('SELECT Employees.EmployeeID , Employees.LastName, Employees.FirstName, Customers.Country AS CustomerCountry, COUNT(Orders.OrderID) AS OrderCounts, SUM("Order Details".Quantity * "Order Details".UnitPrice)  AS TotalOrderValue  FROM Employees INNER JOIN Orders ON Orders.EmployeeID = Employees.EmployeeID INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID INNER JOIN "Order Details" ON Orders.OrderID="Order Details".OrderID WHERE Customers.Country="USA" GROUP BY Employees.EmployeeID, Employees.LastName, Employees.FirstName ORDER BY OrderCounts DESC, TotalOrderValue DESC LIMIT 5', nw)
+
+
+
+
+
+
+Employees.
+EmployeeID
+LastName
+FirstName
+Region
+PostalCode
+Country
+HomePhone
+Extension
+
+Orders.
+OrderID
+CustomerID
+EmployeeID
+
+Order Details.
+OrderID
+Quantity
+UnitPrice
+
+Customers.
+CustomerID
+CompanyName
+Country
+Region
+City
+
+
+
+
+
 
 
